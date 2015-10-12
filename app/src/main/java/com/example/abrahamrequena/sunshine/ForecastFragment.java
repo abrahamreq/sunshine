@@ -238,7 +238,7 @@ public class ForecastFragment extends Fragment {
                 double low = temperatureObject.getDouble(OWM_MIN);
 
                 highAndLow = formatHighLows(high, low, unitType);
-                resultStrs[i] = day + " - " + description + " - " + highAndLow;
+                resultStrs[i] = day + " - " + description + " - " + highAndLow + "#SunshineApp";
             }
 
             for (String s : resultStrs) {
