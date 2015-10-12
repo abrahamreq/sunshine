@@ -268,6 +268,7 @@ public class ForecastFragment extends Fragment {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
             String units = preferences.getString(getString(R.string.pref_units_key), getString(R.string.pref_units_default));
             int numDays = 7;
+            String appid = "ef8f968bf32610e7fde61896f7675d63";
 
             try {
                 // Construct the URL for the OpenWeatherMap query
@@ -279,12 +280,14 @@ public class ForecastFragment extends Fragment {
                 final String FORMAT_PARAM = "mode";
                 final String UNITS_PARAM = "units";
                 final String DAYS_PARAM = "cnt";
+                final String APPID = "APPID";
 
                 Uri builtUri = Uri.parse(FORECAST_BASE_URL).buildUpon()
                         .appendQueryParameter(QUERY_PARAM, params[0])
                         .appendQueryParameter(FORMAT_PARAM, format)
                         .appendQueryParameter(UNITS_PARAM, units)
                         .appendQueryParameter(DAYS_PARAM, Integer.toString(numDays))
+                        .appendQueryParameter(APPID, appid)
                         .build();
 
                 URL url = new URL(builtUri.toString());
